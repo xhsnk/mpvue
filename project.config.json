@@ -10,7 +10,7 @@
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wxa56438ede053aec3",
-	"projectname": "xhsnk",
+	"projectname": "mpvue",
 	"condition": {
 		"search": {
 			"current": -1,
