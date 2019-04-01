@@ -1,12 +1,9 @@
-<template>
-  <div @click="clickHandle">
-  <div>
-    helloworld
-  </div>
-  <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="content">内容不错</view>
-    <view slot="footer">尾部内容</view>
-</i-card>
+np<template>
+  <div >
+  <i-notice-bar icon="systemprompt" loop>
+    湖北大学附近新开店铺
+  </i-notice-bar>
+
   </div>
 </template>
 
