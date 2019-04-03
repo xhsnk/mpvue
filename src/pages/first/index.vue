@@ -1,8 +1,14 @@
 np<template>
   <div>
   <i-notice-bar icon="systemprompt" loop>
-    湖北大学附近好玩店铺榜来了！
+    {{notice}}湖北大学附近好玩店铺榜来了！
   </i-notice-bar>
+<i-grid i-class="no-border">
+   <i-grid-item v-for="item in food" :key="item" i-class="no-border">
+     <i-grid-label>{{item}}</i-grid-label>
+     </i-grid-item>
+</i-grid>
+  
 <i-grid i-class="no-border">
     <i-grid-item i-class="no-border">
         <i-grid-icon>
@@ -82,7 +88,9 @@ export default {
       motto: 'Hello miniprograme',
       userInfo: {
         nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
+        avatarUrl: 'http://mpvue.com/assets/logo.png',
+        notice:"数据绑定",
+        food:['煎饼果子','臭豆腐','香浓奶茶','热干面','原汤面']
       }
     }
   },
