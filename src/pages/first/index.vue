@@ -49,14 +49,14 @@ np<template>
         <i-grid-label>更多</i-grid-label>
     </i-grid-item>
 </i-grid> 
-<i-panel title="标题">
-    <view style="padding: 15px;">精选店铺推荐</view>
+<i-panel title="湖大附近精选店铺推荐">
+    <view style="padding: 15px;"></view>
 </i-panel>
-   <i-card title="布辣格麻辣烫" extra="饮食店" thumb="/static/card/bulage.jpg">
+   <i-card title="布辣格" extra="饮食店" thumb="/static/card/bulage.jpg">
     <view slot="content">推荐小吃：麻辣烫加金针菇、土豆、等等</view>
     <view slot="footer">麻辣烫是真的好吃!</view>
 </i-card>
-<i-card title="宝赞生煎" extra="饮食店" thumb="/static/card/bapzan.jpg">
+<i-card title="宝赞生煎" extra="饮食店" thumb="/static/card/baozan.jpg">
     <view slot="content">招牌：虾仁生煎</view>
     <view slot="footer">生煎满口留香！</view>
 </i-card>
@@ -89,8 +89,8 @@ export default {
       userInfo: {
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png',
-        notice:"数据绑定",
-        food:['煎饼果子','臭豆腐','香浓奶茶','热干面','原汤面']
+        notice:"数据绑定", 
+        food:['煎饼果子', '臭豆腐', '香浓奶茶', '热干面', '原汤面' ]
       }
     }
   },
@@ -182,3 +182,4 @@ div >>> .no-border {
   background-color:green;
 }
 </style>
+np
