@@ -5,12 +5,14 @@
 		"es6": false,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
+	"appid": "wxa56438ede053aec3",
 	"projectname": "xhsnk",
+	"libVersion": "2.6.4",
 	"condition": {
 		"search": {
 			"current": -1,

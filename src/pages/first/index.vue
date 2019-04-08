@@ -52,10 +52,21 @@ np<template>
 <i-panel title="湖大附近精选店铺推荐">
     <view style="padding: 15px;"></view>
 </i-panel>
+
+<view v-for="item in shop" :key='item' class="top-padding">
+ <i-card  :title="item.name" :extra="item.type">
+    <view slot="content">{{item.tuijian}}</view>
+    <view slot="footer">{{item.introduction}}</view>
+</i-card>
+</view>
+
+
    <i-card title="布辣格" extra="饮食店" thumb="/static/card/bulage.jpg">
     <view slot="content">推荐小吃：麻辣烫加金针菇、土豆、等等</view>
     <view slot="footer">麻辣烫是真的好吃!</view>
 </i-card>
+
+
 <i-card title="宝赞生煎" extra="饮食店" thumb="/static/card/baozan.jpg">
     <view slot="content">招牌：虾仁生煎</view>
     <view slot="footer">生煎满口留香！</view>
@@ -114,8 +125,14 @@ export default {
     }
   },
 
-  created () {
-    // let app = getApp()
+   created () {
+    const db = wx.cloud.database({ env: 'xhsnk-0d8d1f' })
+    db.collection('shop').get().then(
+      res => {
+        console.log(res.data)
+        this.shop = res.data
+      }
+    )
   }
 }
 </script>
