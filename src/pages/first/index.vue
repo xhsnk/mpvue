@@ -1,5 +1,6 @@
 np<template>
   <div>
+    <button open-type=“getUserInfo”>授权</button>
   <i-notice-bar icon="systemprompt" loop>
     {{notice}}湖北大学附近好玩店铺榜来了！
   </i-notice-bar>
@@ -131,9 +132,10 @@ export default {
       res => {
         console.log(res.data)
         this.shop = res.data
-      }
-
- 
+      }         
+    )
+    wx.cloud.callFunction({ name: 'user' }).then(
+      res => {console.log(res)}
     )
   }
 }
