@@ -132,6 +132,8 @@ export default {
         console.log(res.data)
         this.shop = res.data
       }
+
+ 
     )
   }
 }
