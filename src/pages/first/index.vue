@@ -137,6 +137,9 @@ export default {
     wx.cloud.callFunction({ name: 'user' }).then(
       res => {console.log(res)}
     )
+    wx.cloud.callFunction({ name: 'input' }).then(
+      res => {console.log(res)}
+    )  
   }
 }
 </script>
