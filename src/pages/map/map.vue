@@ -1,5 +1,5 @@
 <template>
-  <div @click="clickHandle">
+  <div style="height:100%;">
  <map
       id="map"
       longitude="114.347997"
@@ -18,12 +18,19 @@
 </template>
 
 <script>
-
+import card from '@/components/card'
 
 export default {
   data () {
     return {
-      
+      markers: [{
+      iconPath: '/static/grid/map.png',
+      id: 0,
+      latitude: 30.571331,
+      longitude: 114.347997,
+      width: 50,
+      height: 50
+    }],
     }
   },
 
@@ -32,6 +39,16 @@ export default {
   },
 
   methods: {
+        regionchange(event) {
+        console.log(event)
+      },
+      markertap(event) {
+        console.log(event)
+      },
+      controltap(event) {
+        console.log(event)
+      }
+
   },
 
   created () {
@@ -41,5 +58,5 @@ export default {
 </script>
 
 <style >
-
+body,html{height:100%}
 </style>

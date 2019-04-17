@@ -68,6 +68,11 @@ export default {
 
   created () {
     // let app = getApp()
+    this.$http.get('http://www.baidu.com', 'param').then((res)=>{
+        console.log('res', res)
+      }).catch(err=>{
+      })
+
   }
 }
 </script>
