@@ -1,4 +1,4 @@
-np<template>
+<template>
   <div>
     <button open-type=“getUserInfo”>授权</button>
   <i-notice-bar icon="systemprompt" loop>
