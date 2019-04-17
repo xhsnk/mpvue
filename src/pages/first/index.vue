@@ -4,6 +4,7 @@
   <i-notice-bar icon="systemprompt" loop>
     {{notice}}湖北大学附近好玩店铺榜来了！
   </i-notice-bar>
+  
 <i-grid i-class="no-border">
    <i-grid-item v-for="item in food" :key="item" i-class="no-border">
      <i-grid-label>{{item}}</i-grid-label>
