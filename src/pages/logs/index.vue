@@ -1,18 +1,22 @@
 <template>
   <div>
-      <swiper v-if="imgUrls.length > 0" indidator-dots="imgUrls.length > 1" >
-      <block v-for="(item, index) in imgUrls" :key="index" >
-        <swiper-item>
-          <image :src="item" mode="scaleToFill"></image>
-        </swiper-item>
-      </block>
-    </swiper>
+     components: {
+    <i-panel title="基础用法">
+    <i-input value="{{ value1 }}" title="收货人" autofocus placeholder="名字" />
+    <i-input value="{{ value2 }}" type="number" title="联系电话" placeholder="请输入手机号" />
+    <i-input value="{{ value3 }}" type="textarea" title="详细地址" placeholder="请输入详细地址(最多50字)" maxlength="50" />
+    <i-input value="{{ value4 }}" title="用户信息" disabled />
+</i-panel>
 
-    <ul class="container log-list">
-      <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
-        <card :text="(index + 1) + ' . ' + log"></card>
-      </li>
-    </ul>
+<i-panel title="无标题输入框">
+    <i-input value="{{ value5 }}" placeholder="请输入收货人姓名" />
+</i-panel>
+
+<i-panel title="圆角输入框">
+    <i-input value="{{ value6 }}" type="number" right title="消费总额" mode="wrapped" placeholder="询问收银员后输入" />
+    <i-input value="{{ value7 }}" type="number" right error title="不参与优惠金额" mode="wrapped" placeholder="询问收银员后输入" />
+</i-panel>
+  },
   </div>
 </template>
 
@@ -21,41 +25,26 @@ import { formatTime } from '@/utils/index'
 import card from '@/components/card'
 
 export default {
-  components: {
-    card
-  },
+  
 
   data () {
     return {
-      logs: [],
-      imgUrls: [
-        'http://mss.sankuai.com/v1/mss_51a7233366a4427fa6132a6ce72dbe54/newsPicture/05558951-de60-49fb-b674-dd906c8897a6',
-        'http://mss.sankuai.com/v1/mss_51a7233366a4427fa6132a6ce72dbe54/coursePicture/0fbcfdf7-0040-4692-8f84-78bb21f3395d',
-        'http://mss.sankuai.com/v1/mss_51a7233366a4427fa6132a6ce72dbe54/management-school-picture/7683b32e-4e44-4b2f-9c03-c21f34320870'
-      ]
+      value1: '',
+        value2: '',
+        value3: '',
+        value4: '输入框已禁用',
+        value5: '',
+        value6: '',
+        value7: ''
+
     }
   },
 
   created () {
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-    } else {
-      logs = mpvue.getStorageSync('logs') || []
-    }
-    this.logs = logs.map(log => formatTime(new Date(log)))
+    
   }
 }
 </script>
 
 <style>
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
-
-.log-item {
-  margin: 10rpx;
-}
 </style>
