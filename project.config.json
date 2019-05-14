@@ -14,6 +14,8 @@
 	"appid": "wxa56438ede053aec3",
 	"projectname": "xhsnk",
 	"libVersion": "2.6.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

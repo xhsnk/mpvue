@@ -1,86 +1,26 @@
 <template>
   <div>
-    <button open-type=“getUserInfo”>授权</button>
   <i-notice-bar icon="systemprompt" loop>
     {{notice}}湖北大学附近好玩店铺榜来了！
   </i-notice-bar>
-  
-<i-grid i-class="no-border">
-   <i-grid-item v-for="item in food" :key="item" i-class="no-border">
-     <i-grid-label>{{item}}</i-grid-label>
-     </i-grid-item>
+
+<i-grid>
+    <i-grid-item v-for="grid in grids" :key="grid" i-class="no-border">
+        <i-grid-icon>
+            <image :src="grid.image" />
+        </i-grid-icon>
+        <i-grid-label>{{grid.title}}</i-grid-label>
+    </i-grid-item>   
 </i-grid>
-  
-<i-grid i-class="no-border">
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/food.png" />
-        </i-grid-icon>
-        <i-grid-label>饮食店</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/shipin.png" />
-        </i-grid-icon>
-        <i-grid-label>饰品店</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/furit.png" />
-        </i-grid-icon>
-        <i-grid-label>水果店</i-grid-label>
-    </i-grid-item>
-</i-grid>
-  <i-grid i-class="no-border">
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/happy.png" />
-        </i-grid-icon>
-        <i-grid-label>娱乐店</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/yaopin.png" />
-        </i-grid-icon>
-        <i-grid-label>药品店</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/grid/other.png" />
-        </i-grid-icon>
-        <i-grid-label>更多</i-grid-label>
-    </i-grid-item>
-</i-grid> 
-<i-panel title="湖大附近精选店铺推荐">
-    <view style="padding: 15px;"></view>
+
+<i-panel :title="title_name">
+  <view style="padding: 15px;"></view>
 </i-panel>
+    <i-card v-for="item in top" :key="item" :title="item.name"  :thumb="item.image">
+      <view slot="content">{{item.introdu}}</view>
+      <view slot="footer">{{item.introduc}}</view>
+    </i-card>
 
-   <i-card title="布辣格" extra="饮食店" thumb="/static/card/bulage.jpg">
-    <view slot="content">推荐小吃：麻辣烫加金针菇、土豆、等等</view>
-    <view slot="footer">麻辣烫是真的好吃!</view>
-   </i-card>
-
-
-<i-card i-class="splid" title="宝赞生煎" extra="饮食店" thumb="/static/card/baozan.jpg">
-    <view slot="content">招牌：虾仁生煎</view>
-    <view slot="footer">生煎满口留香！</view>
-</i-card>
-<i-card i-class="splid" title="芝士焗饭" extra="饮食店" thumb="/static/card/zhishifan.jpg">
-    <view slot="content">招牌：芝士焗饭</view>
-    <view slot="footer">我也不知道写什么了</view>
-</i-card>
-<i-card  i-class="splid" title="山道" extra="健身店" thumb="/static/card/shandao.jpg">
-    <view slot="content">推荐：健身锻炼</view>
-    <view slot="footer">在夏天来临之前给自己一个美美的身材吧！</view>
-</i-card>
-<i-card  i-class="splid" title="台湾饭团" extra="饮食店" thumb="/static/card/fantuan.jpg">
-    <view slot="content">招牌：原味饭团</view>
-    <view slot="footer">饭团简直不要更好吃！</view>
-</i-card>
-<i-card i-class="splid" title="一点点" extra="饮食店" thumb="/static/card/yidiandian.jpg">
-    <view slot="content">招牌：奶茶</view>
-    <view slot="footer">风靡全国的奶茶店！但是我不觉得好喝...</view>
-</i-card>
   </div>
 </template>
 
@@ -90,13 +30,16 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png',
-        notice:"数据绑定", 
-        food:['煎饼果子', '臭豆腐', '香浓奶茶', '热干面', '原汤面' ]
-      }
+      title_name:"专题",
+      grids:[
+        {title:"每日打卡",image:"/static/grid/daka.png"},
+        {title:"健身专题",image:"/static/grid/zhuanti.png"},
+        {title:"精选分享",image:"/static/grid/jingxuan.png"}
+      ],
+      top: [
+        {name:"jipi",image:"/static/grid/zhuanti.png",introdu:"说明 1",introduc:"说明2"},
+        {name:"标题2",image:"/static/grid/zhuanti.png",introdu:"说明 1",introduc:"说明2"}
+            ]
     }
   },
 
@@ -139,6 +82,7 @@ export default {
 
 <style scoped>
 div >>> .no-border {
+  height: 55pt;
   border-width: 0pt;
 }
 div >>> .no-border {
@@ -202,4 +146,3 @@ div >>> .no-border {
   background-color:green;
 }
 </style>
-np
