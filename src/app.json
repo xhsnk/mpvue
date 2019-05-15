@@ -2,7 +2,8 @@
   "pages": [
     "pages/first/main",
     "pages/index/main", 
-    "pages/map/main"
+    "pages/map/main",
+    "pages/zhuanti/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

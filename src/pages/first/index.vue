@@ -1,8 +1,21 @@
 <template>
   <div>
   <i-notice-bar icon="systemprompt" loop>
-    {{notice}}湖北大学附近好玩店铺榜来了！
+    {{notice}}夏季即将来临，快快丢掉你的赘肉！！
   </i-notice-bar>
+  <swiper
+    :indicator-dots="indicatorDots"
+    :autoplay="autoplay"
+    :interval="interval"
+    :duration="duration"
+     >
+    <block v-for="img in imgUrls" :key="img">
+      <swiper-item>
+        <image :src="img" style="widht:100%" />
+      </swiper-item>
+    </block>
+  </swiper>
+
 
 <i-grid>
     <i-grid-item v-for="grid in grids" :key="grid" i-class="no-border">
@@ -13,14 +26,15 @@
     </i-grid-item>   
 </i-grid>
 
-<i-panel :title="title_name">
-  <view style="padding: 15px;"></view>
+<i-panel title="标题">
+    <view style="padding: 15px;background: #ADD8E6;">分类专题精选</view>
 </i-panel>
-    <i-card v-for="item in top" :key="item" :title="item.name"  :thumb="item.image">
-      <view slot="content">{{item.introdu}}</view>
-      <view slot="footer">{{item.introduc}}</view>
-    </i-card>
-
+     
+<i-card i-lcass="splid" v-for="item in top" :key="item" :title="item.name">
+    <view slot="content"><image style="width:100%;height:80pt;" :src="item.image" />{{item.introdu}}</view>
+    <view slot="footer">{{item.introduc}}</view>    
+</i-card>
+<i-button @click="chang" type="success" shape="circle">更多精选</i-button>  
   </div>
 </template>
 
@@ -32,50 +46,40 @@ export default {
     return {
       title_name:"专题",
       grids:[
-        {title:"每日打卡",image:"/static/grid/daka.png"},
-        {title:"健身专题",image:"/static/grid/zhuanti.png"},
-        {title:"精选分享",image:"/static/grid/jingxuan.png"}
+        {title:"每日打卡",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/daka.png"},
+        {title:"健身专题",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/zhuanti.png"},
+        {title:"精选分享",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/jingxuan.png"}
       ],
       top: [
-        {name:"jipi",image:"/static/grid/zhuanti.png",introdu:"说明 1",introduc:"说明2"},
-        {name:"标题2",image:"/static/grid/zhuanti.png",introdu:"说明 1",introduc:"说明2"}
-            ]
+        {name:"健身锻炼",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/swiper2.JPG",introdu:"理想的运动时长，应该是多久呢",introduc:"“不运动40分钟以上，就没有减肥效果”吗？这个说法靠谱吗？"},
+        {name:"饮食指南",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/food.jpg",introdu:"早餐推荐合辑",introduc:"9道减脂营养早餐，颜值与健康兼具"}
+            ],
+      imgUrls: [
+        'cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/swiper1.JPG',
+        'cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/swiper2.JPG',
+        'cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/swiper3.JPG'
+      ],
+      indicatorDots: false,
+      autoplay: false,
+      interval: 5000,
+      duration: 1000
+
     }
   },
-
+  
   components: {
     card
   },
+  
 
   methods: {
-    bindViewTap () {
-      const url = '../logs/main'
-      if (mpvuePlatform === 'wx') {
-        mpvue.switchTab({ url })
-      } else {
-        mpvue.navigateTo({ url })
-      }
-    },
-    clickHandle (ev) {
-      console.log('clickHandle:', ev)
-      // throw {message: 'custom test'}
-    }
+   chang(){
+    wx.navigateTo({
+      url: '/page/zhuanti/main'
+     })
+  }
   },
-
    created () {
-    const db = wx.cloud.database({ env: 'xhsnk-0d8d1f' })
-    db.collection('shop').get().then(
-      res => {
-        console.log(res.data)
-        this.shop = res.data
-      }         
-    )
-    wx.cloud.callFunction({ name: 'user' }).then(
-      res => {console.log(res)}
-    )
-    wx.cloud.callFunction({ name: 'input' }).then(
-      res => {console.log(res)}
-    )  
   }
 }
 </script>
@@ -89,60 +93,7 @@ div >>> .no-border {
   border-width: 0pt;
 }
 
-.top-padding {
-  padding-top: 50rpx;
-}
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .splid {
-  margin-top: 10px;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
-}
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
-}
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
-}
-
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
+  margin-top: 100pt;
 }
 </style>
