@@ -10,8 +10,8 @@
         "i-notice-bar": "../../../static/dist/notice-bar/index",
         "i-avatar": "../../../static/dist/avatar/index",
         "i-cell-group": "../../../static/dist/cell-group/index",
-        "i-cell": "../../../static/dist/cell/index"
-        
+        "i-cell": "../../../static/dist/cell/index",
+        "i-modal": "../../../static/dist/modal/index"   
 }
 
 }

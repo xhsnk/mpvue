@@ -18,13 +18,27 @@
 
 
 <i-grid>
-    <i-grid-item v-for="grid in grids" :key="grid" i-class="no-border">
+    <i-grid-item i-class="no-border" @click="talk">
         <i-grid-icon>
-            <image :src="grid.image" />
+            <image src="cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/daka.png" />
         </i-grid-icon>
-        <i-grid-label>{{grid.title}}</i-grid-label>
+        <i-grid-label>每日打卡</i-grid-label>
+    </i-grid-item>   
+    <i-grid-item i-class="no-border" @click="chang">
+        <i-grid-icon>
+            <image src="cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/zhuanti.png" />
+        </i-grid-icon>
+        <i-grid-label>精选内容</i-grid-label>
+    </i-grid-item>   
+    <i-grid-item i-class="no-border">
+        <i-grid-icon>
+            <image src="cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/jingxuan.png" />
+        </i-grid-icon>
+        <i-grid-label>社区分享</i-grid-label>
     </i-grid-item>   
 </i-grid>
+
+
 
 <i-panel title="标题">
     <view style="padding: 15px;background: #ADD8E6;">分类专题精选</view>
@@ -45,11 +59,6 @@ export default {
   data () {
     return {
       title_name:"专题",
-      grids:[
-        {title:"每日打卡",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/daka.png"},
-        {title:"健身专题",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/zhuanti.png"},
-        {title:"精选分享",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/jingxuan.png"}
-      ],
       top: [
         {name:"健身锻炼",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/swiper2.JPG",introdu:"理想的运动时长，应该是多久呢",introduc:"“不运动40分钟以上，就没有减肥效果”吗？这个说法靠谱吗？"},
         {name:"饮食指南",image:"cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/food.jpg",introdu:"早餐推荐合辑",introduc:"9道减脂营养早餐，颜值与健康兼具"}
@@ -62,7 +71,8 @@ export default {
       indicatorDots: false,
       autoplay: false,
       interval: 5000,
-      duration: 1000
+      duration: 1000,
+    
 
     }
   },
@@ -74,11 +84,24 @@ export default {
 
   methods: {
    chang(){
-    wx.navigateTo({
-      url: '../zhuanti/main'
+      wx.navigateTo({
+        url: '../handpick/main'
+      })
+   },
+   talk(){
+      wx.showModal({
+      title: '提示',
+      content: '该功能暂未实现，敬请期待',
+      success(res) {
+      if (res.confirm) {
+        console.log('用户点击确定')
+      } else if (res.cancel) {
+        console.log('用户点击取消')
+      }
+    }
      })
-   }
-  },
+  }
+},
    created () {
   }
 }
