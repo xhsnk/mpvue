@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       markers: [{
-      iconPath: '/static/grid/map.png',
+      iconPath: 'cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/map.png',
       id: 0,
       latitude: 30.571331,
       longitude: 114.347997,

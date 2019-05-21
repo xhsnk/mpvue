@@ -2,8 +2,7 @@
   "pages": [
     "pages/first/main",
     "pages/index/main", 
-    "pages/map/main",
-    "pages/zhuanti/main"
+    "pages/map/main" 
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,7 +38,7 @@
       "pagePath": "pages/first/main",
       "icon": "static/tabs/home.png",
       "activeIcon": "static/tabs/home-active.png"
-    },{
+    }, {
       "name": "推荐",
       "pagePath": "pages/index/main",
       "icon": "static/tabs/orders.png",

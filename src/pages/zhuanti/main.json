@@ -1,5 +1,4 @@
 {
-    "navigationBarTitleText": "其他",
     "usingComponents": {
         "i-button": "../../../static/dist/button/index",
         "i-card": "../../../static/dist/card/index",

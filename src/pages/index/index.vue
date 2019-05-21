@@ -25,9 +25,7 @@ export default {
   components: {
     card
   },
-
   methods: {
-
     handleChange ( detail ) {
       console.log(detail)
         this.current = detail.mp.detail.key
