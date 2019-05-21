@@ -35,7 +35,6 @@
     <view slot="footer">{{item.introduc}}</view>    
 </i-card>
 <i-button @click="chang" type="success" shape="circle">更多精选</i-button>  
-<i-button @click="toShare" type="success" shape="circle">分享页面</i-button>  
   </div>
 </template>
 
@@ -78,12 +77,7 @@ export default {
     wx.navigateTo({
       url: '../zhuanti/main'
      })
-  },
-    toShare(){
-      wx.navigateTo({
-        url: '../share/main'
-      })
-    }
+   }
   },
    created () {
   }
