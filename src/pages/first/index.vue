@@ -30,7 +30,7 @@
         </i-grid-icon>
         <i-grid-label>精选内容</i-grid-label>
     </i-grid-item>   
-    <i-grid-item i-class="no-border">
+    <i-grid-item i-class="no-border" @click="toShare">
         <i-grid-icon>
             <image src="cloud://xhsnk-0d8d1f.7868-xhsnk-0d8d1f/Img/jingxuan.png" />
         </i-grid-icon>
@@ -100,6 +100,11 @@ export default {
       }
     }
      })
+  },
+  toShare(){
+    wx.navigateTo({
+        url: '../share/main'
+      })
   }
 },
    created () {
