@@ -7,6 +7,9 @@ Vue.config.errorHandler = function (err) {
     console.error(err)
   }
 }
+wx.cloud.init({
+  traceUser: true
+})
 
 const app = new Vue(App)
 app.$mount()
