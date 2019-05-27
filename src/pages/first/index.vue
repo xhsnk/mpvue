@@ -1,7 +1,7 @@
 <template>
   <div>
   <i-notice-bar icon="systemprompt" loop>
-    {{notice}}夏季即将来临，快快丢掉你的赘肉！！
+    {{notice}}燃烧我的卡路里！！
   </i-notice-bar>
   <swiper
     :indicator-dots="indicatorDots"
@@ -38,13 +38,10 @@
     </i-grid-item>   
 </i-grid>
 
+<view style="padding-top: 15px;background: #ADD8E6;">分类专题精选</view>
 
-
-<i-panel title="标题">
-    <view style="padding: 15px;background: #ADD8E6;">分类专题精选</view>
-</i-panel>
      
-<i-card i-lcass="splid" v-for="item in top" :key="item" :title="item.name">
+<i-card style="padding: 15px;" v-for="item in top" :key="item" :title="item.name">
     <view slot="content"><image style="width:100%;height:80pt;" :src="item.image" />{{item.introdu}}</view>
     <view slot="footer">{{item.introduc}}</view>    
 </i-card>

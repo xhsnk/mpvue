@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "湖大健身",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -27,7 +27,7 @@
       "iconPath": "static/tabs/orders.png",
       "selectedIconPath": "static/tabs/orders-active.png"
     }, {
-      "text": "地图",
+      "text": "跑步路线",
       "pagePath": "pages/map/main",
       "iconPath": "static/tabs/map.png",
       "selectedIconPath": "static/tabs/map-active.png"
@@ -44,7 +44,7 @@
       "icon": "static/tabs/orders.png",
       "activeIcon": "static/tabs/orders-active.png"
     }, {
-      "name": "地图",
+      "name": "跑步路线",
       "pagePath": "pages/map/main",
       "icon": "static/tabs/map.png",
       "activeIcon": "static/tabs/map-active.png"
