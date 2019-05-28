@@ -11,7 +11,7 @@
      >
     <block v-for="img in imgUrls" :key="img">
       <swiper-item>
-        <image :src="img" style="widht:100%" />
+        <image :src="img" style="width: 100%" />
       </swiper-item>
     </block>
   </swiper>
@@ -37,9 +37,9 @@
         <i-grid-label>社区分享</i-grid-label>
     </i-grid-item>   
 </i-grid>
-
-<view style="padding-top: 15px;background: #ADD8E6;">分类专题精选</view>
-
+<i-panel>
+<view style="padding: 15px;background: #ADD8E6;margin-top: 10px;">分类专题精选</view>
+</i-panel>
      
 <i-card style="padding: 15px;" v-for="item in top" :key="item" :title="item.name">
     <view slot="content"><image style="width:100%;height:80pt;" :src="item.image" />{{item.introdu}}</view>
