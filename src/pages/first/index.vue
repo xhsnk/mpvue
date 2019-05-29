@@ -38,14 +38,14 @@
     </i-grid-item>   
 </i-grid>
 <i-panel>
-<view style="padding: 15px;background: #ADD8E6;margin-top: 10px;">分类专题精选</view>
+<view style="padding: 15px;background: #ADD8E6;margin-top: 10px;font-weight:bold;">分类专题精选</view>
 </i-panel>
      
 <i-card style="padding: 15px;" v-for="item in top" :key="item" :title="item.name">
     <view slot="content"><image style="width:100%;height:80pt;" :src="item.image" />{{item.introdu}}</view>
     <view slot="footer">{{item.introduc}}</view>    
 </i-card>
-<i-button @click="chang" type="success" shape="circle">更多精选</i-button>  
+<i-button @click="chang" type="success" shape="circle" style="font-weight:bold;">更多精选</i-button>  
   </div>
 </template>
 
@@ -69,8 +69,6 @@ export default {
       autoplay: false,
       interval: 5000,
       duration: 1000,
-    
-
     }
   },
   
